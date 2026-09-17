@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic HTML Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Main navigation">
+        <div class="brand">MyBrand</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+
+    <main class="container" id="home">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Welcome</p>
+          <h1>Build something great.</h1>
+          <p>
+            This is a simple starter page using semantic HTML, CSS styling, and a small script for
+            interactivity.
+          </p>
+          <button type="button">Get Started</button>
+        </div>
+      </section>
+
+      <section class="features" id="about">
+        <article class="card">
+          <h2>Fast</h2>
+          <p>Simple structure that loads quickly and stays easy to maintain.</p>
+        </article>
+        <article class="card" id="services">
+          <h2>Clean</h2>
+          <p>Readable markup with modern styling for a polished look.</p>
+        </article>
+        <article class="card" id="contact">
+          <h2>Flexible</h2>
+          <p>Easy to extend into a larger project as your needs grow.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> MyBrand</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
