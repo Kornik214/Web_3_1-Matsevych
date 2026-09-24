@@ -1,58 +1,91 @@
 <!doctype html>
-<html lang="uk">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Секція тарифних планів: Basic, Pro та Enterprise." />
-    <title>Наші тарифи</title>
+    <meta
+      name="description"
+      content="Compare Basic, Pro, and Enterprise pricing plans to find the right option for your team."
+    />
+    <link rel="canonical" href="https://kornik214.github.io/Web_3_1-Matsevych/lab.2/" />
+    <title>Pricing Plans for Teams | Basic, Pro and Enterprise</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <main>
+    <header class="site-header">
+      <div class="container site-header__content">
+        <a class="site-brand" href="#main-content">Team Plans</a>
+        <nav aria-label="Primary navigation">
+          <ul class="site-nav">
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="pricing-hero" aria-labelledby="page-title">
+        <div class="container">
+          <h1 id="page-title">Pricing plans for every team</h1>
+          <p>Compare clear, flexible options and choose a plan that fits the way your team works.</p>
+        </div>
+      </section>
+
       <section class="pricing" id="pricing" aria-labelledby="pricing-title">
         <div class="container">
           <header class="pricing__header">
-            <h1 id="pricing-title">Наші тарифи</h1>
-            <p>Оберіть план, який найкраще підходить для ваших завдань</p>
+            <h2 id="pricing-title">Choose the right plan</h2>
+            <p>Start with the features you need today and move to a larger plan when your work grows.</p>
           </header>
 
           <div class="pricing__grid">
-            <article class="pricing-card">
-              <h2>Basic</h2>
+            <article class="pricing-card" id="basic-plan">
+              <h3>Basic</h3>
+              <p class="pricing-card__summary">For personal projects and small teams getting started.</p>
               <p class="pricing-card__price"><span>$10</span> / month</p>
               <ul class="pricing-card__features">
                 <li>1 User</li>
                 <li>5GB Storage</li>
                 <li>Basic Support</li>
               </ul>
-              <a class="btn btn--secondary" href="#pricing">Select</a>
+              <a class="btn btn--secondary" href="#contact">Ask about the Basic plan</a>
             </article>
 
-            <article class="pricing-card pricing-card--featured" aria-label="Pro, активний тариф">
+            <article class="pricing-card pricing-card--featured" id="pro-plan">
               <p class="pricing-card__badge">PRO &bull; ACTIVE</p>
-              <h2>Pro</h2>
+              <h3>Pro</h3>
+              <p class="pricing-card__summary">For growing teams that need more storage and faster support.</p>
               <p class="pricing-card__price"><span>$29</span> / month</p>
               <ul class="pricing-card__features">
                 <li>5 Users</li>
                 <li>50GB Storage</li>
                 <li>Priority Support</li>
               </ul>
-              <a class="btn btn--primary" href="#pricing">Get Started</a>
+              <a class="btn btn--primary" href="#contact">Ask about the Pro plan</a>
             </article>
 
-            <article class="pricing-card">
-              <h2>Enterprise</h2>
+            <article class="pricing-card" id="enterprise-plan">
+              <h3>Enterprise</h3>
+              <p class="pricing-card__summary">For organizations that need scale, flexibility, and around-the-clock support.</p>
               <p class="pricing-card__price"><span>$99</span> / month</p>
               <ul class="pricing-card__features">
-                <li>Unlimited</li>
+                <li>Unlimited Users</li>
                 <li>1TB Storage</li>
                 <li>24/7 Support</li>
               </ul>
-              <a class="btn btn--secondary" href="#pricing">Contact</a>
+              <a class="btn btn--secondary" href="#contact">Contact Enterprise sales</a>
             </article>
           </div>
         </div>
       </section>
     </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        <p>Need help choosing a plan? Review the options above and contact the team with your requirements.</p>
+        <a href="#pricing">Return to pricing plans</a>
+      </div>
+    </footer>
   </body>
 </html>
