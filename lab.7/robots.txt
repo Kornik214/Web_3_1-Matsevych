@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kornik214.github.io/Web_3_1-Matsevych/lab.7/sitemap.xml
