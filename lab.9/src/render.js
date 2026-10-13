@@ -1,4 +1,4 @@
-import { notes } from './state.js';
+import { notes, watchlist } from './state.js';
 
 export function renderShows(list) {
   const results = document.getElementById('results');
@@ -13,7 +13,6 @@ export function renderShows(list) {
   }
 
   status.textContent = `Знайдено: ${list.length} з 30`;
-
   const fragment = document.createDocumentFragment();
 
   for (const show of list) {
@@ -29,6 +28,8 @@ export function renderShows(list) {
 
     const btnToggle = clone.querySelector('[data-action="toggle"]');
     btnToggle.setAttribute('aria-label', `До списку: ${show.name}`);
+
+    btnToggle.setAttribute('aria-pressed', watchlist.has(show.id).toString());
 
     const btnDetails = clone.querySelector('[data-action="details"]');
     btnDetails.setAttribute('aria-label', `Детальніше про ${show.name}`);
