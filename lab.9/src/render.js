@@ -20,31 +20,38 @@ export function renderShows(list) {
     const li = clone.querySelector('li');
     li.dataset.id = show.id;
 
-    clone.querySelector('[data-field="name"]').textContent = show.name;
-    clone.querySelector('[data-field="year"]').textContent = show.year || '—';
-    clone.querySelector('[data-field="rating"]').textContent = show.rating || '—';
-    clone.querySelector('[data-field="genres"]').textContent = 
-      (show.genres && show.genres.length > 0) ? show.genres.join(', ') : '—';
+    const fill = (field, text) => {
+      const el = clone.querySelector(`[data-field="${field}"]`);
+      if (el) el.textContent = text;
+    };
+
+    fill('name', show.name);
+    fill('year', show.year || '—');
+    fill('rating', show.rating || '—');
+    fill('genres', (show.genres && show.genres.length > 0) ? show.genres.join(', ') : '—');
 
     const btnToggle = clone.querySelector('[data-action="toggle"]');
-    btnToggle.setAttribute('aria-label', `До списку: ${show.name}`);
-
-    btnToggle.setAttribute('aria-pressed', watchlist.has(show.id).toString());
+    if (btnToggle) {
+      btnToggle.setAttribute('aria-label', `До списку: ${show.name}`);
+      btnToggle.setAttribute('aria-pressed', watchlist.has(Number(show.id)) || watchlist.has(String(show.id)) ? 'true' : 'false');
+    }
 
     const btnDetails = clone.querySelector('[data-action="details"]');
-    btnDetails.setAttribute('aria-label', `Детальніше про ${show.name}`);
+    if (btnDetails) {
+      btnDetails.setAttribute('aria-label', `Детальніше про ${show.name}`);
+    }
 
-    const noteData = notes.get(show.id);
-    const myRatingEl = clone.querySelector('[data-field="my-rating"]');
-    const myNoteEl = clone.querySelector('[data-field="my-note"]');
+     const noteData = notes.get(show.id);
+    const mineEl = clone.querySelector('.card__mine');
+    const noteEl = clone.querySelector('[data-field="note"]');
 
-    if (myRatingEl && myNoteEl) {
-      if (noteData) {
-        myRatingEl.textContent = `Моя оцінка: ${noteData.rating}/10`;
-        myNoteEl.textContent = noteData.text || '';
-      } else {
-        myRatingEl.textContent = '';
-        myNoteEl.textContent = '';
+    if (noteData) {
+      clone.querySelector('[data-field="my-rating"]').textContent = String(noteData.rating);
+      mineEl.hidden = false;
+
+      if (noteData.text) {
+        noteEl.textContent = noteData.text;
+        noteEl.hidden = false;
       }
     }
 
