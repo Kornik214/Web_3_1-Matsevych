@@ -14,7 +14,7 @@ let venues = [];
 
 /* Mobile menu */
 
-const menuToggle = document.querySelector('.site-header button');
+const menuToggle = document.querySelector('.menu-toggle');
 const siteNav = document.getElementById('site-nav');
 
 menuToggle.addEventListener('click', () => {
@@ -52,14 +52,15 @@ form.addEventListener('submit', () => {
 
 /* Booking */
 
-function bindBookButtons() {
-  document.querySelectorAll('.venue-card__book').forEach((button) => {
-    button.addEventListener('click', () => {
-      const venue = venues.find((item) => item.id === button.dataset.id);
-      openBooking(venue, form.date.value || toISODate(new Date()));
-    });
-  });
-}
+/* Booking */
+
+results.addEventListener('click', (event) => {
+  const button = event.target.closest('.venue-card__book');
+  if (!button) return;
+
+  const venue = venues.find((item) => item.id === button.dataset.id);
+  openBooking(venue, form.date.value || toISODate(new Date()));
+});
 
 /* Initial state: popular venues */
 
@@ -67,4 +68,3 @@ venues = await fetchVenues({ popular: true });
 renderResults(results, venues);
 results.setAttribute('aria-busy', 'false');
 status.textContent = `Популярні майданчики: ${venues.length}`;
-bindBookButtons();
