@@ -40,17 +40,13 @@ async function handleSearch(event) {
   renderResults(results, found);
   venues = found;
   results.setAttribute('aria-busy', 'false');
+
+  // Оновлюємо статус тільки після того, як відрендерили нові картки
+  const count = results.children.length;
+  status.textContent = count ? `Знайдено: ${count}` : 'Нічого не знайдено';
 }
 
 form.addEventListener('submit', handleSearch);
-
-// Status line, announced by screen readers (role="status")
-form.addEventListener('submit', () => {
-  const count = results.children.length;
-  status.textContent = count ? `Знайдено: ${count}` : 'Нічого не знайдено';
-});
-
-/* Booking */
 
 /* Booking */
 
